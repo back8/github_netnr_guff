@@ -31,18 +31,19 @@ var gp = {
             if (v != "") {
                 var bi = document.createElement('div'), ics = [];
                 bi.className = "rounded";
-                switch (type) {
-                    case "Image":
+                switch (type.toLowerCase()) {
+                    case "image":
                         ics.push('<img data-src="' + v + '" src="' + v + '" onerror="this.remove()" title="图片 ' + v + '" />');
                         break;
-                    case "Audio":
+                    case "audio":
                         ics.push('<i data-src="' + v + '" class="fa fa-fw fa-lg fa-play-circle" title="音频 ' + v + '"></i>');
                         break;
-                    case "Video":
+                    case "video":
                         ics.push('<i data-src="' + v + '" class="fa fa-fw fa-lg fa-youtube-play" title="视频 ' + v + '"></i>');
                         break;
                 }
                 ics.push('<span class="fa fa-remove" title="删除"></span>')
+                console.log(ics)
                 bi.innerHTML = ics.join('');
                 $(bi).find('span').click(function () {
                     jz.confirm('确定删除？', {
